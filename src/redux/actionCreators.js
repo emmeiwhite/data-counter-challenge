@@ -19,3 +19,20 @@ export const fetch_error = error => {
     payload: error
   }
 }
+
+// Thunk Action
+const url = 'https://dummyjson.com/products'
+const products_fetch = () => {
+  return dispatch => {
+    dispatch(fetch_request())
+    axios(url)
+      .then(res => {
+        dispatch(fetch_success(res))
+        console.log(res)
+      })
+      .catch(err => {
+        dispatch(fetch_error(err))
+        console.log(err)
+      })
+  }
+}
