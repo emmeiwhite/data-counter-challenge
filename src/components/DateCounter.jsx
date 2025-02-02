@@ -50,7 +50,11 @@ const DateCounter = () => {
         </button>
       </div>
 
-      <p className="mt-4">Today is {date.toDateString()}</p>
+      <p className="mt-4">
+        {count
+          ? `${count} day${count > 1 ? 's' : ''} from now is ${date.toDateString()}`
+          : `Today is ${date.toDateString()}`}
+      </p>
 
       <div className="border border-indigo-300 p-4 mt-10 rounded-sm bg-gray-100">
         <h4 className="font-semibold">Date Idea used:</h4>
