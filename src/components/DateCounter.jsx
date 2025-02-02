@@ -11,6 +11,11 @@ const DateCounter = () => {
   function handleCountDecrease() {
     setCount(c => c - (step || 1))
   }
+
+  // Awesome Date functionality
+  let date = new Date('june 21 2027')
+  date.setDate(date.getDate() + count)
+
   return (
     <div>
       <h2 className="text-center my-3 text-2xl font-semibold">
@@ -45,7 +50,7 @@ const DateCounter = () => {
         </button>
       </div>
 
-      <p className="mt-4">Today is Mon Jun 21, 2024</p>
+      <p className="mt-4">Today is {date.toDateString()}</p>
       <h3>Current Count Value: {count}</h3>
     </div>
   )
