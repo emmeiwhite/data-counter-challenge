@@ -7,7 +7,7 @@ function App() {
   return (
     <Provider store={store}>
       <section className="container px-5 pt-5 text-center m-auto">
-        <DateCounter />
+        {/* <DateCounter /> */}
 
         <Products />
       </section>
