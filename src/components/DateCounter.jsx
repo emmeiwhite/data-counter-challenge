@@ -5,11 +5,11 @@ const DateCounter = () => {
   const [count, setCount] = useState(0)
 
   function handleCountIncrease() {
-    setCount(c => (c + !step ? c + 1 : step))
+    setCount(c => c + (step || 1))
   }
 
   function handleCountDecrease() {
-    setCount(c => (c - !step ? c - 1 : step))
+    setCount(c => c - (step || 1))
   }
   return (
     <div>
