@@ -13,7 +13,7 @@ const DateCounter = () => {
   }
 
   // Awesome Date functionality
-  let date = new Date('june 21 2027')
+  let date = new Date()
   date.setDate(date.getDate() + count)
 
   return (
@@ -51,7 +51,15 @@ const DateCounter = () => {
       </div>
 
       <p className="mt-4">Today is {date.toDateString()}</p>
-      <h3>Current Count Value: {count}</h3>
+
+      <div className="border border-indigo-300 p-4 mt-10 rounded-sm bg-gray-100">
+        <h4 className="font-semibold">Date Idea used:</h4>
+        <pre className="bg-gray-200 p-2 rounded text-sm overflow-x-auto">
+          <code>
+            {`let date = new Date('June 21 2027');\ndate.setDate(date.getDate() + count);`}
+          </code>
+        </pre>
+      </div>
     </div>
   )
 }
