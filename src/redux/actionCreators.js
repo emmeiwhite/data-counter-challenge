@@ -1,4 +1,5 @@
-import { FETCH_REQUEST } from './actionTypes'
+import { FETCH_ERROR, FETCH_REQUEST, FETCH_SUCCESS } from './actionTypes'
+import axios from 'axios'
 
 export const fetch_request = () => {
   return {
@@ -8,14 +9,14 @@ export const fetch_request = () => {
 
 export const fetch_success = products => {
   return {
-    type: FETCH_REQUEST,
+    type: FETCH_SUCCESS,
     payload: products
   }
 }
 
 export const fetch_error = error => {
   return {
-    type: FETCH_REQUEST,
+    type: FETCH_ERROR,
     payload: error
   }
 }
@@ -27,8 +28,8 @@ const products_fetch = () => {
     dispatch(fetch_request())
     axios(url)
       .then(res => {
-        dispatch(fetch_success(res))
-        console.log(res)
+        dispatch(fetch_success(res.data.products))
+        console.log(res.data.products)
       })
       .catch(err => {
         dispatch(fetch_error(err))
@@ -36,3 +37,5 @@ const products_fetch = () => {
       })
   }
 }
+
+export default products_fetch
