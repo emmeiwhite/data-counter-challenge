@@ -15,10 +15,13 @@ export default function LoginForm() {
     if (!formData.name && !formData.gmail) return
 
     dispatch(add_user(formData)) // passing formData directly to the global state users and avoiding lifting state up, Global state is awesome
+    setFormData({ ...formData, name: '', gmail: '' })
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="mb-8">
       <label>
         Name:
         <input
