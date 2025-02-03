@@ -1,4 +1,4 @@
-import { FETCH_ERROR, FETCH_REQUEST, FETCH_SUCCESS } from './actionTypes'
+import { ADD_USER, FETCH_ERROR, FETCH_REQUEST, FETCH_SUCCESS } from './actionTypes'
 import axios from 'axios'
 
 export const fetch_request = () => {
@@ -18,6 +18,14 @@ export const fetch_error = error => {
   return {
     type: FETCH_ERROR,
     payload: error
+  }
+}
+
+// To add the user Entered in Login Form
+export const add_user = user => {
+  return {
+    type: ADD_USER,
+    payload: user
   }
 }
 
