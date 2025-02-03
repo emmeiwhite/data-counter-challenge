@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { add_user } from '../redux/actionCreators'
 
-export default function LoginForm({ onSubmit }) {
+export default function LoginForm() {
   const [formData, setFormData] = useState({ name: '', gmail: '' })
+  const dispatch = useDispatch()
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -10,7 +13,8 @@ export default function LoginForm({ onSubmit }) {
   function handleSubmit(e) {
     e.preventDefault()
     if (!formData.name && !formData.gmail) return
-    onSubmit(formData) // Pass form data to the parent or test
+
+    dispatch(add_user(formData)) // passing formData directly to the global state users and avoiding lifting state up, Global state is awesome
   }
 
   return (
