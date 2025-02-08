@@ -4,6 +4,7 @@ import store from './store'
 import Products from './components/Products'
 import LoginForm from './components/Login'
 import User from './components/Users'
+import BankingApp from './components/BankingApp'
 function App() {
   // UI is dependant on data of the application called the state
   return (
@@ -12,9 +13,10 @@ function App() {
         {/* <DateCounter /> */}
 
         {/* <Products /> */}
-        <LoginForm />
+        {/* <LoginForm /> */}
 
-        <User />
+        {/* <User /> */}
+        <BankingApp />
       </section>
     </Provider>
   )
