@@ -22,6 +22,16 @@ const reducer = (state, action) => {
       balance: state.balance + 150
     }
   }
+
+  if (action.type === 'withdraw') {
+    if (state.balance <= 50) return { ...state }
+
+    return {
+      ...state,
+      isDisabled: false,
+      balance: state.balance - 50
+    }
+  }
 }
 
 const BankingApp = () => {
@@ -59,7 +69,8 @@ const BankingApp = () => {
           className={`px-4 py-2 bg-orange-400 text-white ${
             state.isDisabled ? 'cursor-not-allowed' : 'border-2 border-red-700 cursor-pointer'
           }`}
-          disabled={state.isDisabled}>
+          disabled={state.isDisabled}
+          onClick={() => dispatch({ type: 'withdraw' })}>
           Withdraw 50
         </button>
       </div>
