@@ -14,6 +14,14 @@ const reducer = (state, action) => {
       balance: state.balance + 500
     }
   }
+
+  if (action.type === 'deposit') {
+    return {
+      ...state,
+      isDisabled: false,
+      balance: state.balance + 150
+    }
+  }
 }
 
 const BankingApp = () => {
@@ -40,7 +48,8 @@ const BankingApp = () => {
           className={`px-4 py-2 bg-green-400 text-white ${
             state.isDisabled ? 'cursor-not-allowed' : 'border-2 border-amber-700 cursor-pointer'
           }`}
-          disabled={state.isDisabled}>
+          disabled={state.isDisabled}
+          onClick={() => dispatch({ type: 'deposit' })}>
           Deposit 150
         </button>
       </div>
